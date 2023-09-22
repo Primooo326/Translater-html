@@ -12,12 +12,12 @@ function default_1(htmlContent, data) {
     });
     let newHtmlContent = cleanedHtmlContent.replaceAll(/\s+/g, " ").trim();
     data.forEach((etiqueta) => {
-        newHtmlContent = newHtmlContent.replace(etiqueta.textContent, etiqueta.textTranslated);
+        newHtmlContent = newHtmlContent.replaceAll(etiqueta.textContent, etiqueta.textTranslated);
     });
     // Restaurar las etiquetas <script> en el contenido final
     scripts.forEach((scriptTag, index) => {
         const scriptMarker = `<!--SCRIPT_MARKER_${index}-->`;
-        newHtmlContent = newHtmlContent.replace(scriptMarker, scriptTag);
+        newHtmlContent = newHtmlContent.replaceAll(scriptMarker, scriptTag);
     });
     return newHtmlContent;
 }

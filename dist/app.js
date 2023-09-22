@@ -15,7 +15,7 @@ async function main(nombreArchivo, traducirA) {
             const textTranslated = await (0, translater_1.default)(etiquetaObject.textContent, traducirA);
             return { ...etiquetaObject, textTranslated };
         }));
-        fs_1.default.writeFileSync("datos2.json", JSON.stringify(newData));
+        // fs.writeFileSync("datos2.json", JSON.stringify(newData));
         const htmlContent = fs_1.default.readFileSync(nombreArchivo, "utf-8");
         let newHtmlContent = (0, merge_1.default)(htmlContent, newData);
         fs_1.default.writeFileSync(`t.${nombreArchivo}`, newHtmlContent);
